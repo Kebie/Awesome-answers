@@ -8,7 +8,42 @@
 </head>
 <body>
 
-<%= yield %>
 
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="Three-Dee" href="#">AWESOME ANSWERS</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><%= link_to "Questions", questions_path%></li>
+            <li><%= link_to "Add a new Question", new_question_path %></li>  
+            <li><%= link_to "Edit Question", edit_question_path(1) %></li>
+            <li><%= link_to "Delete Questions", question_path(1), method: :delete %></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+
+
+
+<div class="container">
+
+<% if flash[:notice] || flash[:error] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= yield %>
+</div>
 </body>
 </html>
