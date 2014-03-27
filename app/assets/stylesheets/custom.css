@@ -7,7 +7,7 @@ body {
 }
 
 
-.Three-Dee{
+/*.Three-Dee{
 font-family: Garamond, serif;
 line-height: 1em;
 color: #48ff00;
@@ -18,11 +18,11 @@ text-shadow:0px 0px 0 rgb(45,228,-27),0px 1px 0 rgb(28,211,-44),
 0px 5px 0 rgb(-39,144,-111),0px 6px 0 rgb(-56,127,-128),0px 7px 0 rgb(-73,110,-145),
 0px 8px 0 rgb(-90,93,-162),0px 9px 0 rgb(-107,76,-179), 0px 10px 0 rgb(-124,59,-196),
 0px 11px 10px rgba(0,0,0,0.3),0px 11px 1px rgba(0,0,0,0.5),0px 0px 10px rgba(0,0,0,.2);}
+*/
 
-
-.field_with_errors{
+/*.field_with_errors{
 line-height: 1em;
 color: #ff0000;
 font-weight:bold;
 font-size: 24px;
-text-shadow:0px 0px 0 rgb(216,-39,-39),1px 1px 0 rgb(187,-68,-68),2px 2px 0 rgb(158,-97,-97), 3px 3px 0 rgb(129,-126,-126),4px 4px 3px rgba(0,0,0,0.6),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);}
+text-shadow:0px 0px 0 rgb(216,-39,-39),1px 1px 0 rgb(187,-68,-68),2px 2px 0 rgb(158,-97,-97), 3px 3px 0 rgb(129,-126,-126),4px 4px 3px rgba(0,0,0,0.6),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);}*/
