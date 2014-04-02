@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'thin'
 
+gem 'haml'
+
 gem "quiet_assets"
 group :development do
   gem 'hirb'

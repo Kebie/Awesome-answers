@@ -1,0 +1,7 @@
+%h1 List all of the questions
+- @questions.each do |question|
+  %h2= link_to question.title, question
+  %p= question.description
+  %p
+    Created On: #{question.created_at.strftime("%Y-%b-%d")}
+  %hr/

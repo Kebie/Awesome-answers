@@ -1,0 +1,20 @@
+- if @question.errors.any?
+  %h3.field_with_errors ERRRORSSSSS!!!!!!
+  .alert.alert-danger
+    %ul
+      - @question.errors.full_messages.each do |m|
+        %li= m
+= form_for @question do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: "form-control"
+  .form-group
+    = f.submit class: "btn btn-primary"
+.container
+  - if flash[:notice] || flash[:error]
+    .alert.alert-success
+      = flash[:notice]
+  = yield
