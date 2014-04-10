@@ -12,6 +12,8 @@
     = f.label :description
     = f.text_area :description, class: "form-control"
   .form-group
+    = f.collection_check_boxes :category_ids, Category.order("title"), :id, :title
+  .form-group
     = f.submit class: "btn btn-primary"
 .container
   - if flash[:notice] || flash[:error]

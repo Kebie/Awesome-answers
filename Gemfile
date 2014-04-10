@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-
+gem 'devise'
 gem 'thin'
 
 gem 'haml'
+gem 'font-awesome-sass'
 
 gem "quiet_assets"
 group :development do

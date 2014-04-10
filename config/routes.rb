@@ -1,4 +1,9 @@
 AwesomeAnswers::Application.routes.draw do
+  devise_for :users
+  root 'projects#index'
+
+  get "/password" => "home#password"
+
   get "/about_us" => "home#about"
 
   get "/help" => "help#index"
@@ -15,6 +20,7 @@ AwesomeAnswers::Application.routes.draw do
   # 
   
   resources :questions do
+    resources :answers
     member do#create a special action of vote_up int he controller. on: :member makes it take an ID
       post :vote_up 
       post :vote_down

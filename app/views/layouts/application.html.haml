@@ -14,15 +14,21 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.Three-Dee{href: "#"} AWESOME ANSWERS
+          .navbar-brand= link_to "AWESOME ANSWERS", questions_path
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li= link_to "Questions", questions_path
             %li= link_to "Add a new Question", new_question_path
-            %li= link_to "Edit Question", edit_question_path(1)
-            %li= link_to "Delete Questions", question_path(1), method: :delete
+          .pull-right
+            - if user_signed_in?
+              = link_to "Sign Out", destroy_user_session_path, method: :delete
+            - else
+              = link_to "Sign In", new_user_session_path 
+
     .container
-      - if flash[:notice] || flash[:error]
+      - if flash[:notice]
         .alert.alert-success
           = flash[:notice]
+      - elsif flash[:error]
+        .alert.alert-danger
+          = flash[:error]  
       = yield

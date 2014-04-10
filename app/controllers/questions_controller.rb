@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   before_action :find_question,
-                  only: [:show, :edit, :destroy, :update, :vote_up, :vote_down]
+                  only: [:edit, :destroy, :update, :vote_up, :vote_down]
   #before_action :find_question, except: [:index, :new, :destroy, :update]
 
   #index is the standard for displaying all the questions
@@ -10,7 +11,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_attributes)
+    #because the current_user has the question object connected to it, you can
+    #use the current user to create a new questiona and also have a user ID connected to it
+    #of the current user.
+    #Same as @question = Question.new(question_attributes)
+    #and @question.user = current_user
+    @question = current_user.questions.new(question_attributes)
+
     if @question.save #check for validation errors etc, that it was entered into the datbase
       redirect_to questions_path, notice: "Your question was submitted and will be answered soon"
     else
@@ -19,6 +26,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   def edit
@@ -56,11 +65,11 @@ class QuestionsController < ApplicationController
   private 
 
   def question_attributes
-    params.require(:question).permit([:title,:description]) 
+    params.require(:question).permit([:title,:description, {category_ids: []}]) 
   end
 
   def find_question
-    @question = Question.find(params[:id])
+    @question = current_user.questions.find(params[:id])
   end
 
 
